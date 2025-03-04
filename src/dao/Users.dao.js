@@ -3,6 +3,10 @@ import userModel from "./models/User.js";
 
 export default class Users {
     
+    createUser = async (userData) => {
+        return await UsersDAO.save(userData);
+    }
+    
     get = (params) =>{
         return userModel.find(params);
     }
@@ -18,7 +22,7 @@ export default class Users {
     update = (id,doc) =>{
         return userModel.findByIdAndUpdate(id,{$set:doc})
     }
-
+    
     delete = (id) =>{
         return userModel.findByIdAndDelete(id);
     }

@@ -1,29 +1,11 @@
-import {generateMockUsers, generateMockPets} from '../services/mocking.services.js';
+import MockingService from '../services/mocking.services.js';
 
+export const getMockUsers = async (req, res) => {
+    const users = await MockingService.generateMockingUsers(50);
+    res.send({status: "success", payload: users});
+}
 
-const getMockPets = (req, res) => {
-    const pets = generateMockPets(100);
-    res.json(pets);
-};
-
-const getMockUsers = (req, res) => {
-    const users = generateMockUsers(50);
-    res.json(users);
-};
-
-const generateData = async (req, res) => {
-    try {
-        const { users, pets } = req.body;
-        const mockPets = generateMockPets(pets);
-        const mockUsers = generateMockUsers(users);
-        res.json({ message: "Datos generados correctamente", mockUsers, mockPets });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
-
-export default { 
-    getMockPets, 
-    getMockUsers, 
-    generateData 
-};
+export const getMockPets = async (req, res) => {
+    const pets = await MockingService.generateMockingPets(100);
+    res.send({status: "success", payload: pets});
+}

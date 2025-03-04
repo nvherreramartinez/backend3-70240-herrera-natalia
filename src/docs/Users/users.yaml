@@ -1,0 +1,127 @@
+openapi: 3.0.0
+info:
+  title: Users API
+  description: API para gestionar usuarios en el sistema.
+  version: 1.0.0
+
+paths:
+  /api/users:
+    get:
+      summary: Obtener todos los usuarios
+      tags:
+        - Users
+      responses:
+        200:
+          description: Lista de usuarios obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      summary: Crear un nuevo usuario
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        201:
+          description: Usuario creado exitosamente
+        400:
+          description: Error en la solicitud
+
+  /api/users/{id}:
+    get:
+      summary: Obtener un usuario por ID
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Usuario obtenido correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        404:
+          description: Usuario no encontrado
+    put:
+      summary: Actualizar un usuario por ID
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        200:
+          description: Usuario actualizado correctamente
+        400:
+          description: Error en la solicitud
+        404:
+          description: Usuario no encontrado
+    delete:
+      summary: Eliminar un usuario por ID
+      tags:
+        - Users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Usuario eliminado correctamente
+        404:
+          description: Usuario no encontrado
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: "60d0fe4f5311236168a109ca"
+        first_name:
+          type: string
+          example: "Juan"
+        last_name:
+          type: string
+          example: "Pérez"
+        phone:
+          type: string
+          example: "+5491123456789"
+        email:
+          type: string
+          example: "juan.perez@example.com"
+        password:
+          type: string
+          example: "$2b$10$... (hash bcrypt)"
+        role:
+          type: string
+          enum: ["user", "admin"]
+        pets:
+          type: array
+          items:
+            type: string
+            example: "60d0fe4f5311236168a109cb"

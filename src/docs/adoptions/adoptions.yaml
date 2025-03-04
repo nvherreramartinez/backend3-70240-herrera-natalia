@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  title: Adoptions API
+  description: API para gestionar el proceso de adopción de mascotas.
+  version: 1.0.0
+
+paths:
+  /api/adoptions:
+    get:
+      summary: Obtener todas las solicitudes de adopción
+      tags:
+        - Adoptions
+      responses:
+        200:
+          description: Lista de adopciones obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Adoption'
+    post:
+      summary: Crear una nueva solicitud de adopción
+      tags:
+        - Adoptions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdoptionRequest'
+      responses:
+        201:
+          description: Solicitud de adopción creada exitosamente
+        400:
+          description: Error en la solicitud
+
+  /api/adoptions/{id}:
+    get:
+      summary: Obtener una solicitud de adopción por ID
+      tags:
+        - Adoptions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Solicitud obtenida correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Adoption'
+        404:
+          description: Solicitud no encontrada
+    put:
+      summary: Actualizar el estado de una adopción
+      tags:
+        - Adoptions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: ["pending", "approved", "rejected"]
+                  example: "approved"
+      responses:
+        200:
+          description: Estado actualizado correctamente
+        400:
+          description: Error en la solicitud
+        404:
+          description: Solicitud no encontrada
+    delete:
+      summary: Eliminar una solicitud de adopción por ID
+      tags:
+        - Adoptions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Solicitud eliminada correctamente
+        404:
+          description: Solicitud no encontrada
+
+components:
+  schemas:
+    Adoption:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: "60d0fe4f5311236168a109dd"
+        pet:
+          type: string
+          example: "60d0fe4f5311236168a109cc"
+        adopter:
+          type: string
+          example: "60d0fe4f5311236168a109ca"
+        status:
+          type: string
+          enum: ["pending", "approved", "rejected"]
+          example: "pending"
+    AdoptionRequest:
+      type: object
+      properties:
+        pet:
+          type: string
+          example: "60d0fe4f5311236168a109cc"
+        adopter:
+          type: string
+          example: "60d0fe4f5311236168a109ca"

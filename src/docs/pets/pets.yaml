@@ -1,0 +1,120 @@
+openapi: 3.0.0
+info:
+  title: Pets API
+  description: API para gestionar las mascotas disponibles para adopción.
+  version: 1.0.0
+
+paths:
+  /api/pets:
+    get:
+      summary: Obtener todas las mascotas
+      tags:
+        - Pets
+      responses:
+        200:
+          description: Lista de mascotas obtenida correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+    post:
+      summary: Agregar una nueva mascota
+      tags:
+        - Pets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+      responses:
+        201:
+          description: Mascota agregada exitosamente
+        400:
+          description: Error en la solicitud
+
+  /api/pets/{id}:
+    get:
+      summary: Obtener una mascota por ID
+      tags:
+        - Pets
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Mascota obtenida correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        404:
+          description: Mascota no encontrada
+    put:
+      summary: Actualizar una mascota por ID
+      tags:
+        - Pets
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+      responses:
+        200:
+          description: Mascota actualizada correctamente
+        400:
+          description: Error en la solicitud
+        404:
+          description: Mascota no encontrada
+    delete:
+      summary: Eliminar una mascota por ID
+      tags:
+        - Pets
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Mascota eliminada correctamente
+        404:
+          description: Mascota no encontrada
+
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: "60d0fe4f5311236168a109cc"
+        name:
+          type: string
+          example: "Firulais"
+        specie:
+          type: string
+          example: "Perro"
+        age:
+          type: integer
+          example: 3
+        adopted:
+          type: boolean
+          example: false
+        owner:
+          type: string
+          nullable: true
+          example: null
