@@ -3,7 +3,7 @@
 ## Descripción
 Este proyecto es una API REST para la gestión de usuarios, mascotas y adopciones, con generación de datos ficticios y documentación con Swagger.
 
-## Tecnologías Utilizadas
+## Tecnologías Utilizadas 🖥️
 - Node.js
 - Express
 - MongoDB con Mongoose
@@ -11,7 +11,7 @@ Este proyecto es una API REST para la gestión de usuarios, mascotas y adopcione
 - Mocha, Chai y Supertest para testing
 - Docker para contenedorización
 
-## Instalación
+## Instalación ⚙️
 
 1. Clona este repositorio:
    ```sh
@@ -26,7 +26,7 @@ Este proyecto es una API REST para la gestión de usuarios, mascotas y adopcione
    npm install
    ```
 
-## Configuración
+## Configuración ⚙️
 1. Crea un archivo `.env` en la raíz del proyecto con las siguientes variables:
    ```env
    PORT=8080
@@ -34,9 +34,9 @@ Este proyecto es una API REST para la gestión de usuarios, mascotas y adopcione
    SECRET_KEY=clave_secreta
    ```
 
-## Uso
+## Uso 📖
 
-### Iniciar el servidor
+### Iniciar el servidor 🔝
 - Modo producción:
   ```sh
   npm start
@@ -46,7 +46,8 @@ Este proyecto es una API REST para la gestión de usuarios, mascotas y adopcione
   npm run dev
   ```
 
-### Endpoints Principales
+### Endpoints Principales ➡️⬅️⬆️⬇️
+
 | Método | Endpoint               | Descripción |
 |--------|------------------------|-------------|
 | GET    | `/api/users`           | Obtener todos los usuarios |
@@ -59,7 +60,7 @@ Este proyecto es una API REST para la gestión de usuarios, mascotas y adopcione
 | GET    | `/api/mocks/mockingusers` | Obtener usuarios ficticios |
 | POST   | `/api/mocks/generateData` | Generar datos ficticios |
 
-### Documentación con Swagger
+### Documentación con Swagger 📚
 La documentación de la API está disponible en:
 ```
 http://localhost:8080/api/docs
@@ -71,7 +72,7 @@ Ejecutar los tests con:
 npm test
 ```
 
-## Docker
+## Docker 🐋
 1. Construir la imagen:
    ```sh
    docker build -t plantilladocumentacion .
@@ -81,11 +82,11 @@ npm test
    docker run -p 8080:8080 plantilladocumentacion
    ```
 
-### Imagen en Docker Hub
+### Imagen en Docker Hub 🐋
 Puedes encontrar la imagen del proyecto en Docker Hub en el siguiente enlace:
 [Docker Hub - Plantilla Documentación](https://hub.docker.com/repository/docker/nvherreramartinez/trabajofinalbk3/general)
 
-## Autor
+## Autor ✒️
 Desarrollado por Lic. Natalia V. Herrera.
 
 ## Contacto 📬
