@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "32fb421a-01a9-4857-b8fb-19ac7ea41dd7",
+		"name": "backend3-70240-herrera-natalia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37408366"
+	},
+	"item": [
+		{
+			"name": "Crear mascota",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Max\",\r\n  \"specie\": \"Perro\",\r\n  \"birthDate\": \"2020-05-15\",\r\n  \"adopted\": true,\r\n  \"owner\": \"615a1b2e3c4d5e6f7a8b9c0d\",\r\n  \"image\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/pets"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Max\",\r\n  \"specie\": \"Perro\",\r\n  \"birthDate\": \"2020-05-15\",\r\n  \"adopted\": true,\r\n  \"owner\": \"615a1b2e3c4d5e6f7a8b9c0d\",\r\n  \"image\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/pets"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar un Usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/users/67c64c22470e921ce0433f58"
+			},
+			"response": []
+		},
+		{
+			"name": "Generar una adoption",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/adoptions/67c64c22470e921ce0433f58/67c619ea80a4a916a7dfd3e9/"
+			},
+			"response": []
+		},
+		{
+			"name": "Generar todas las Adopciones",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/adoptions/"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar todos los Usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/users/"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar todas las Mascotas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/pets/"
+			},
+			"response": []
+		}
+	]
+}
